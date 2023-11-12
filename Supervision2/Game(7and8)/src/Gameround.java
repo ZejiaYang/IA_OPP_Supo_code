@@ -35,10 +35,10 @@ public class Gameround {
         this.gamerecord = new PlayerInformation(name);
 
         System.out.println("Current game difficulty: " + (12 - this.max_step) + " .");
-        System.out.println("Would you want to change? [1:yes/0:no]");
+        System.out.println("Would you want to change? [yes/no]");
 
-        int ans = scanner.nextInt();
-        if(ans == 1)
+        String ans = scanner.nextLine();
+        if(ans.equals("yes"))
         { //eliminate the \n
             System.out.println("Input game difficulty [0-9]: ");
             this.max_step = 12 - scanner.nextInt();
@@ -79,14 +79,15 @@ public class Gameround {
             System.out.println("There is no step left! The Target is " + this.target + ".");
         }
 
-        System.out.println("Would you like another round? [1:yes/0:no]");
+        scanner.nextLine();
+        System.out.println("Would you like another round? [yes/no]");
         do{
-            ans = scanner.nextInt();
-            if(ans == 1)
+            ans = scanner.nextLine();
+            if(ans.equals("yes"))
             { //eliminate the \n
                 return true;
             }
-            else if(ans == 0)
+            else if(ans.equals("no"))
             {
                 return false;
             }
