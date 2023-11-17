@@ -42,6 +42,17 @@ public class GridGUI extends JPanel {
 		}
 	}
 
+	public void resetGUI(){
+		this.removeAll();
+		ActionListener tileSelectionListener = new TileSelectionListener(this);
+		for (int y = 0; y < model.height(); y++) {
+			for (int x = 0; x < model.width(); x++) {
+				TileGUI component = new TileGUI(model.tileAt(new Point(x, y)));
+				component.addActionListener(tileSelectionListener);
+				this.add(component);
+			}
+		}
+	}
 	/**
 	 * Add an action Listener
 	 * 

@@ -34,13 +34,14 @@ public class Game extends JPanel {
 	public void buildGUI() {
 		final JFrame frame = new JFrame("Java Word Game");
 
-		TileCollection collection = new TileCollection();
+		final TileCollection collection = new TileCollection();
 		final Grid grid = new Grid(6, 6, collection);
 		final GridGUI gui = new GridGUI(grid);
 		gui.setBackground(Color.PINK);
 		final Move move = new Move(grid, gui);
 		final Font font = new Font("Times New Roman", Font.BOLD, 15);
 		final Border border = new BevelBorder(BevelBorder.RAISED, Color.orange, Color.red);
+
 		final JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 80, 0));
 		final JButton button1 = new JButton("Accept Word");
 		final JButton button2 = new JButton("New Game");
@@ -102,7 +103,9 @@ public class Game extends JPanel {
 		button2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				grid.reset();
+				collection.resetCollection();
+				grid.reset(6,6, collection);
+				gui.resetGUI();
 				gui.setTileForeground(Color.orange);
 				gui.setTileBackground(Color.white);
 				move.resetGame();

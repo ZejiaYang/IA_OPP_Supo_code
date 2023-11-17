@@ -27,6 +27,11 @@ public class TileCollection {
 		this.collection = new ArrayList<Tile>(Arrays.asList(tileArray));
 	}
 
+	public void resetCollection(){
+		Tile[] tileArray = makeTileArray();
+		shuffleTiles(tileArray);
+		this.collection = new ArrayList<Tile>(Arrays.asList(tileArray));
+	}
 	/**
 	 * Exposes the collection of tiles.
 	 * 

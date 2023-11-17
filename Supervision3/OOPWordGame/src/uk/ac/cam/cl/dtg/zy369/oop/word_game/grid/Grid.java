@@ -30,7 +30,6 @@ public class Grid {
 		} else {
 			gridRep = new Tile[width][height];
 			for (int y = 0; y < height; y++) {
-
 				for (int x = 0; x < width; x++) {
 
 					gridRep[x][y] = tiles.removeOne();
@@ -91,10 +90,13 @@ public class Grid {
 		return gridRep[0].length;
 	}
 
-	public void reset(){
-		for (int y = 0; y < this.height(); y++)
-			for (int x = 0; x < this.width(); x++)
-				gridRep[x][y].active(false);
+	public void reset(int width, int height, TileCollection tiles){
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				gridRep[x][y] = tiles.removeOne();
+			}
+		}
+
 	}
 
 	public boolean isOver(){
